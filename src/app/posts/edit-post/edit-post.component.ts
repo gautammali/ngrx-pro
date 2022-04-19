@@ -41,10 +41,10 @@ export class EditPostComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
       ]),
-      description: new FormControl(this.post.description, [
-        Validators.required,
-        Validators.minLength(10),
-      ]),
+      // description: new FormControl(this.post.description, [
+      //   Validators.required,
+      //   Validators.minLength(10),
+      // ]),
     });
   }
 
@@ -55,11 +55,11 @@ export class EditPostComponent implements OnInit {
 
     const title = this.postForm.value.title;
     const description = this.postForm.value.description;
-
+    const completed='';
     const post: Post = {
       id: this.post.id,
       title,
-      description,
+      completed,
     };
 
     //dispatch the action

@@ -32,7 +32,7 @@ export class AddPostComponent implements OnInit {
 
   showDescriptionErrors() {
     let descriptionForm = this.postForm.get('description');
-    if (descriptionForm?.touched && !descriptionForm?.valid) {
+    if (descriptionForm?.touched && descriptionForm?.invalid) {
       if (descriptionForm?.errors?.['required']) {
         return 'Description is required';
       }
@@ -50,7 +50,8 @@ export class AddPostComponent implements OnInit {
 
     const post: Post = {
       title: this.postForm.value.title,
-      description: this.postForm.value.description,
+      completed: this.postForm.value.title,
+      // description: this.postForm.value.description,
     };
 
     this.store.dispatch(addPost({ post }));
