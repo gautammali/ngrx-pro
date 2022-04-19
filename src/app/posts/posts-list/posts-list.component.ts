@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.state';
 import { getPosts } from '../state/posts.selecots';
 import { deletePost } from '../state/posts.actions';
+import { laodPosts } from './../state/posts.actions';
 
 @Component({
   selector: 'app-posts-list',
@@ -18,6 +19,7 @@ export class PostsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.posts = this.store.select(getPosts);
+    this.store.dispatch(laodPosts());
   }
 
   onDeletePost(id:any) {
